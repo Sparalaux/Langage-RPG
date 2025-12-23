@@ -1,4 +1,4 @@
-const question_guerrier = [
+export const question_guerrier = [
   {
     question: "Quelle est la bonne conjugaison : « Il ___ son épée. »",
     answers: [
@@ -181,7 +181,7 @@ const question_guerrier = [
   }
 ];
 
-const question_mage = [
+export const question_mage = [
   {
     question: "Quelle planète est la plus proche du Soleil ?",
     answers: [
@@ -364,7 +364,7 @@ const question_mage = [
   }
 ];
 
-const question_voleur = [
+export const question_voleur = [
   { question: "7 × 8 = ?", answers: [
     { text: "56", correct: true },
     { text: "54", correct: false },
@@ -487,7 +487,7 @@ const question_voleur = [
   ]}
 ];
 
-const question_pretre = [
+export const question_pretre = [
   { question: "Prétérit de « go » ?", answers: [
     { text: "went", correct: true },
     { text: "gone", correct: false },
