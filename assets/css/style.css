@@ -17,3 +17,25 @@
     position: relative;
     top: 300px;
 }
+
+.question-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  text-align: center;
+}
+
+.reponses {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.btn-reponse {
+  padding: 12px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
