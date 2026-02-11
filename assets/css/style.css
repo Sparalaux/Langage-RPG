@@ -87,3 +87,25 @@ body {
 .btn-reponse:active {
   transform: scale(0.97);
 }
+
+.statistiques {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.btn-potion {
+  margin-top: 20px;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #5a3a3a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-potion:hover {
+  background-color: #7a4a4a;
+  transform: scale(1.03);
+}
