@@ -72,6 +72,7 @@ function afficherQuestionAleatoire(listeQuestions) {
   boutons.forEach((bouton, index) => {
     bouton.addEventListener("click", () => {
       verifierReponse(reponsesMelangees[index]);
+      afficherQuestionAleatoire(listeQuestions);
     });
   });
 
@@ -86,11 +87,11 @@ function afficherQuestionAleatoire(listeQuestions) {
 
 function verifierReponse(reponse) {
   if (reponse.correct) {
-    console.log("Bonne réponse ⚔️");
-    // ici : dégâts à l'ennemi
+    alert("Bonne réponse ⚔️");
+    pv_ennemie -= atq_joueur
   } else {
-    console.log("Mauvaise réponse 💀");
-    // ici : dégâts au joueur
+    alert("Mauvaise réponse 💀");
+    pv_joueur -= atq_ennemie
   }
 }
 
