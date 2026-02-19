@@ -158,8 +158,7 @@ function verifierFinDeJeu(listeQuestions) {
       `;
 
       document.querySelector("#btn-rejouer").addEventListener("click", () => {
-        resetGame();
-        lancerQuestion();
+        location.reload();
       });
 
       return true;

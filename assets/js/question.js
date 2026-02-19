@@ -178,6 +178,186 @@ export const question_guerrier = [
       { text: "combat", correct: false },
       { text: "combattre", correct: false }
     ]
+  },
+  {
+    question: "Conjugue « frapper » au futur : « Je ___ l’ennemi. »",
+    answers: [
+      { text: "frapperai", correct: true },
+      { text: "frappais", correct: false },
+      { text: "frappe", correct: false },
+      { text: "frappé", correct: false }
+    ]
+  },
+  {
+    question: "Quel est le passé composé de « il attaque » ?",
+    answers: [
+      { text: "il a attaqué", correct: true },
+      { text: "il attaqua", correct: false },
+      { text: "il attaquait", correct: false },
+      { text: "il attaquera", correct: false }
+    ]
+  },
+  {
+    question: "Conjugue « prendre » au présent : « Nous ___ l’avantage. »",
+    answers: [
+      { text: "prenons", correct: true },
+      { text: "prendons", correct: false },
+      { text: "prennent", correct: false },
+      { text: "prendrons", correct: false }
+    ]
+  },
+  {
+    question: "Quel est le participe passé de « rompre » ?",
+    answers: [
+      { text: "rompu", correct: true },
+      { text: "rompre", correct: false },
+      { text: "rompant", correct: false },
+      { text: "rompait", correct: false }
+    ]
+  },
+  {
+    question: "Conjugue « survivre » au futur : « Tu ___ au combat. »",
+    answers: [
+      { text: "survivras", correct: true },
+      { text: "survis", correct: false },
+      { text: "survivais", correct: false },
+      { text: "survécu", correct: false }
+    ]
+  },
+  {
+    question: "Quel est l’imparfait de « nous chargeons » ?",
+    answers: [
+      { text: "nous chargions", correct: true },
+      { text: "nous chargerons", correct: false },
+      { text: "nous chargeâmes", correct: false },
+      { text: "nous avons chargé", correct: false }
+    ]
+  },
+  {
+    question: "Conjugue « jeter » au présent : « Il ___ une lance. »",
+    answers: [
+      { text: "jette", correct: true },
+      { text: "jete", correct: false },
+      { text: "jetait", correct: false },
+      { text: "jettera", correct: false }
+    ]
+  },
+  {
+    question: "Quel est le futur de « nous voyons » ?",
+    answers: [
+      { text: "nous verrons", correct: true },
+      { text: "nous voyions", correct: false },
+      { text: "nous vîmes", correct: false },
+      { text: "nous avons vu", correct: false }
+    ]
+  },
+  {
+    question: "Conjugue « sortir » au passé composé : « Ils ___ leurs armes. »",
+    answers: [
+      { text: "ont sorti", correct: true },
+      { text: "sortirent", correct: false },
+      { text: "sortaient", correct: false },
+      { text: "sortiront", correct: false }
+    ]
+  },
+  {
+    question: "Quel est le participe passé de « écrire » ?",
+    answers: [
+      { text: "écrit", correct: true },
+      { text: "écrivant", correct: false },
+      { text: "écrira", correct: false },
+      { text: "écrive", correct: false }
+    ]
+  },
+  {
+    question: "Conjugue « suivre » au présent : « Je ___ mon chef. »",
+    answers: [
+      { text: "suis", correct: true },
+      { text: "suit", correct: false },
+      { text: "suivais", correct: false },
+      { text: "suivi", correct: false }
+    ]
+  },
+  {
+    question: "Quel est le passé simple de « il court » ?",
+    answers: [
+      { text: "il courut", correct: true },
+      { text: "il courait", correct: false },
+      { text: "il a couru", correct: false },
+      { text: "il courra", correct: false }
+    ]
+  },
+  {
+    question: "Conjugue « ouvrir » au futur : « Nous ___ la porte. »",
+    answers: [
+      { text: "ouvrirons", correct: true },
+      { text: "ouvrons", correct: false },
+      { text: "ouvrions", correct: false },
+      { text: "ouverts", correct: false }
+    ]
+  },
+  {
+    question: "Quel est l’imparfait de « je tiens » ?",
+    answers: [
+      { text: "je tenais", correct: true },
+      { text: "je tins", correct: false },
+      { text: "je tiendrai", correct: false },
+      { text: "je tenu", correct: false }
+    ]
+  },
+  {
+    question: "Conjugue « tomber » au passé composé : « Il ___ au sol. »",
+    answers: [
+      { text: "est tombé", correct: true },
+      { text: "tomba", correct: false },
+      { text: "tombait", correct: false },
+      { text: "tombera", correct: false }
+    ]
+  },
+  {
+    question: "Quel est le futur de « je fais » ?",
+    answers: [
+      { text: "je ferai", correct: true },
+      { text: "je faisais", correct: false },
+      { text: "je fis", correct: false },
+      { text: "je fait", correct: false }
+    ]
+  },
+  {
+    question: "Conjugue « devoir » au présent : « Tu ___ combattre. »",
+    answers: [
+      { text: "dois", correct: true },
+      { text: "doit", correct: false },
+      { text: "devais", correct: false },
+      { text: "devra", correct: false }
+    ]
+  },
+  {
+    question: "Quel est le participe présent de « courir » ?",
+    answers: [
+      { text: "courant", correct: true },
+      { text: "couru", correct: false },
+      { text: "court", correct: false },
+      { text: "courir", correct: false }
+    ]
+  },
+  {
+    question: "Conjugue « pouvoir » au futur : « Nous ___ gagner. »",
+    answers: [
+      { text: "pourrons", correct: true },
+      { text: "pouvons", correct: false },
+      { text: "pouvions", correct: false },
+      { text: "pu", correct: false }
+    ]
+  },
+  {
+    question: "Quel est le passé composé de « nous perdons » ?",
+    answers: [
+      { text: "nous avons perdu", correct: true },
+      { text: "nous perdîmes", correct: false },
+      { text: "nous perdions", correct: false },
+      { text: "nous perdrons", correct: false }
+    ]
   }
 ];
 
@@ -361,6 +541,186 @@ export const question_mage = [
       { text: "Mars", correct: false },
       { text: "Jupiter", correct: false }
     ]
+  },
+  {
+    question: "Quel est l’élément chimique dont le symbole est H ?",
+    answers: [
+      { text: "Hydrogène", correct: true },
+      { text: "Hélium", correct: false },
+      { text: "Mercure", correct: false },
+      { text: "Oxygène", correct: false }
+    ]
+  },
+  {
+    question: "Combien de planètes composent le système solaire ?",
+    answers: [
+      { text: "8", correct: true },
+      { text: "7", correct: false },
+      { text: "9", correct: false },
+      { text: "10", correct: false }
+    ]
+  },
+  {
+    question: "Quelle est la capitale du Japon ?",
+    answers: [
+      { text: "Tokyo", correct: true },
+      { text: "Kyoto", correct: false },
+      { text: "Osaka", correct: false },
+      { text: "Séoul", correct: false }
+    ]
+  },
+  {
+    question: "Quel instrument mesure la température ?",
+    answers: [
+      { text: "Thermomètre", correct: true },
+      { text: "Baromètre", correct: false },
+      { text: "Altimètre", correct: false },
+      { text: "Hygromètre", correct: false }
+    ]
+  },
+  {
+    question: "Combien y a-t-il de jours dans une année bissextile ?",
+    answers: [
+      { text: "366", correct: true },
+      { text: "365", correct: false },
+      { text: "364", correct: false },
+      { text: "360", correct: false }
+    ]
+  },
+  {
+    question: "Quel est le plus grand mammifère du monde ?",
+    answers: [
+      { text: "La baleine bleue", correct: true },
+      { text: "L’éléphant", correct: false },
+      { text: "La girafe", correct: false },
+      { text: "Le requin", correct: false }
+    ]
+  },
+  {
+    question: "Quel organe permet de respirer ?",
+    answers: [
+      { text: "Les poumons", correct: true },
+      { text: "Le foie", correct: false },
+      { text: "Le cœur", correct: false },
+      { text: "L’estomac", correct: false }
+    ]
+  },
+  {
+    question: "Quelle est la plus grande planète du système solaire ?",
+    answers: [
+      { text: "Jupiter", correct: true },
+      { text: "Saturne", correct: false },
+      { text: "Mars", correct: false },
+      { text: "Neptune", correct: false }
+    ]
+  },
+  {
+    question: "Quelle est la monnaie du Royaume-Uni ?",
+    answers: [
+      { text: "Livre sterling", correct: true },
+      { text: "Euro", correct: false },
+      { text: "Dollar", correct: false },
+      { text: "Franc", correct: false }
+    ]
+  },
+  {
+    question: "Quel est le résultat de 9 × 7 ?",
+    answers: [
+      { text: "63", correct: true },
+      { text: "56", correct: false },
+      { text: "72", correct: false },
+      { text: "49", correct: false }
+    ]
+  },
+  {
+    question: "Quel gaz les plantes absorbent-elles ?",
+    answers: [
+      { text: "CO2", correct: true },
+      { text: "Oxygène", correct: false },
+      { text: "Azote", correct: false },
+      { text: "Hydrogène", correct: false }
+    ]
+  },
+  {
+    question: "Combien de côtés possède un hexagone ?",
+    answers: [
+      { text: "6", correct: true },
+      { text: "5", correct: false },
+      { text: "7", correct: false },
+      { text: "8", correct: false }
+    ]
+  },
+  {
+    question: "Quelle est la vitesse de la lumière approximative ?",
+    answers: [
+      { text: "300 000 km/s", correct: true },
+      { text: "150 000 km/s", correct: false },
+      { text: "30 000 km/s", correct: false },
+      { text: "3 000 km/s", correct: false }
+    ]
+  },
+  {
+    question: "Quel est l’océan le plus profond ?",
+    answers: [
+      { text: "Pacifique", correct: true },
+      { text: "Atlantique", correct: false },
+      { text: "Indien", correct: false },
+      { text: "Arctique", correct: false }
+    ]
+  },
+  {
+    question: "Combien de dents possède un adulte en moyenne ?",
+    answers: [
+      { text: "32", correct: true },
+      { text: "28", correct: false },
+      { text: "30", correct: false },
+      { text: "36", correct: false }
+    ]
+  },
+  {
+    question: "Quel est le symbole chimique du fer ?",
+    answers: [
+      { text: "Fe", correct: true },
+      { text: "F", correct: false },
+      { text: "Ir", correct: false },
+      { text: "Fr", correct: false }
+    ]
+  },
+  {
+    question: "Quel est le plus grand organe du corps humain ?",
+    answers: [
+      { text: "La peau", correct: true },
+      { text: "Le foie", correct: false },
+      { text: "Le cœur", correct: false },
+      { text: "Le cerveau", correct: false }
+    ]
+  },
+  {
+    question: "Quel est le nombre de minutes dans une heure ?",
+    answers: [
+      { text: "60", correct: true },
+      { text: "100", correct: false },
+      { text: "30", correct: false },
+      { text: "90", correct: false }
+    ]
+  },
+  {
+    question: "Quelle planète possède des anneaux visibles ?",
+    answers: [
+      { text: "Saturne", correct: true },
+      { text: "Mars", correct: false },
+      { text: "Vénus", correct: false },
+      { text: "Mercure", correct: false }
+    ]
+  },
+  {
+    question: "Quel est l’animal symbole de la sagesse dans de nombreuses cultures ?",
+    answers: [
+      { text: "La chouette", correct: true },
+      { text: "Le lion", correct: false },
+      { text: "Le loup", correct: false },
+      { text: "Le cheval", correct: false }
+    ]
   }
 ];
 
@@ -484,6 +844,126 @@ export const question_voleur = [
     { text: "20", correct: false },
     { text: "30", correct: false },
     { text: "40", correct: false }
+  ]},
+  { question: "9 × 9 = ?", answers: [
+    { text: "81", correct: true },
+    { text: "72", correct: false },
+    { text: "99", correct: false },
+    { text: "79", correct: false }
+  ]},
+  { question: "144 ÷ 12 = ?", answers: [
+    { text: "12", correct: true },
+    { text: "14", correct: false },
+    { text: "10", correct: false },
+    { text: "16", correct: false }
+  ]},
+  { question: "25 + 37 = ?", answers: [
+    { text: "62", correct: true },
+    { text: "52", correct: false },
+    { text: "67", correct: false },
+    { text: "60", correct: false }
+  ]},
+  { question: "6² = ?", answers: [
+    { text: "36", correct: true },
+    { text: "12", correct: false },
+    { text: "18", correct: false },
+    { text: "30", correct: false }
+  ]},
+  { question: "200 - 85 = ?", answers: [
+    { text: "115", correct: true },
+    { text: "105", correct: false },
+    { text: "125", correct: false },
+    { text: "120", correct: false }
+  ]},
+  { question: "7³ = ?", answers: [
+    { text: "343", correct: true },
+    { text: "49", correct: false },
+    { text: "147", correct: false },
+    { text: "240", correct: false }
+  ]},
+  { question: "18 × 5 = ?", answers: [
+    { text: "90", correct: true },
+    { text: "85", correct: false },
+    { text: "80", correct: false },
+    { text: "95", correct: false }
+  ]},
+  { question: "72 ÷ 8 = ?", answers: [
+    { text: "9", correct: true },
+    { text: "8", correct: false },
+    { text: "7", correct: false },
+    { text: "6", correct: false }
+  ]},
+  { question: "30% de 50 = ?", answers: [
+    { text: "15", correct: true },
+    { text: "10", correct: false },
+    { text: "20", correct: false },
+    { text: "25", correct: false }
+  ]},
+  { question: "5 × (3 + 7) = ?", answers: [
+    { text: "50", correct: true },
+    { text: "35", correct: false },
+    { text: "45", correct: false },
+    { text: "40", correct: false }
+  ]},
+  { question: "11² = ?", answers: [
+    { text: "121", correct: true },
+    { text: "111", correct: false },
+    { text: "131", correct: false },
+    { text: "101", correct: false }
+  ]},
+  { question: "96 ÷ 3 = ?", answers: [
+    { text: "32", correct: true },
+    { text: "30", correct: false },
+    { text: "28", correct: false },
+    { text: "36", correct: false }
+  ]},
+  { question: "14 + 28 = ?", answers: [
+    { text: "42", correct: true },
+    { text: "40", correct: false },
+    { text: "44", correct: false },
+    { text: "38", correct: false }
+  ]},
+  { question: "120 ÷ 10 = ?", answers: [
+    { text: "12", correct: true },
+    { text: "10", correct: false },
+    { text: "14", correct: false },
+    { text: "15", correct: false }
+  ]},
+  { question: "3⁴ = ?", answers: [
+    { text: "81", correct: true },
+    { text: "27", correct: false },
+    { text: "64", correct: false },
+    { text: "72", correct: false }
+  ]},
+  { question: "22 + 19 = ?", answers: [
+    { text: "41", correct: true },
+    { text: "39", correct: false },
+    { text: "42", correct: false },
+    { text: "40", correct: false }
+  ]},
+  { question: "150 - 75 = ?", answers: [
+    { text: "75", correct: true },
+    { text: "65", correct: false },
+    { text: "70", correct: false },
+    { text: "80", correct: false }
+  ]},
+  { question: "8 × 9 = ?", answers: [
+    { text: "72", correct: true },
+    { text: "64", correct: false },
+    { text: "70", correct: false },
+    { text: "68", correct: false }
+  ]},
+  { question: "1/4 de 80 = ?", answers: [
+    { text: "20", correct: true },
+    { text: "25", correct: false },
+    { text: "15", correct: false },
+    { text: "30", correct: false }
+  ]},
+  { question: "250 ÷ 5 = ?", answers: [
+    { text: "50", correct: true },
+    { text: "45", correct: false },
+    { text: "40", correct: false },
+    { text: "55", correct: false }
   ]}
 ];
 
@@ -607,5 +1087,125 @@ export const question_pretre = [
     { text: "spoke", correct: false },
     { text: "speaked", correct: false },
     { text: "speaking", correct: false }
+  ]},
+  { question: "Prétérit de « begin » ?", answers: [
+    { text: "began", correct: true },
+    { text: "begun", correct: false },
+    { text: "begined", correct: false },
+    { text: "begin", correct: false }
+  ]},
+  { question: "Participe passé de « break » ?", answers: [
+    { text: "broken", correct: true },
+    { text: "broke", correct: false },
+    { text: "breaked", correct: false },
+    { text: "breaking", correct: false }
+  ]},
+  { question: "Prétérit de « choose » ?", answers: [
+    { text: "chose", correct: true },
+    { text: "chosen", correct: false },
+    { text: "choosed", correct: false },
+    { text: "choose", correct: false }
+  ]},
+  { question: "Participe passé de « drive » ?", answers: [
+    { text: "driven", correct: true },
+    { text: "drove", correct: false },
+    { text: "drived", correct: false },
+    { text: "driving", correct: false }
+  ]},
+  { question: "Prétérit de « fall » ?", answers: [
+    { text: "fell", correct: true },
+    { text: "fallen", correct: false },
+    { text: "falled", correct: false },
+    { text: "fall", correct: false }
+  ]},
+  { question: "Participe passé de « fly » ?", answers: [
+    { text: "flown", correct: true },
+    { text: "flew", correct: false },
+    { text: "flyed", correct: false },
+    { text: "flying", correct: false }
+  ]},
+  { question: "Prétérit de « forget » ?", answers: [
+    { text: "forgot", correct: true },
+    { text: "forgotten", correct: false },
+    { text: "forgeted", correct: false },
+    { text: "forget", correct: false }
+  ]},
+  { question: "Participe passé de « freeze » ?", answers: [
+    { text: "frozen", correct: true },
+    { text: "froze", correct: false },
+    { text: "freezed", correct: false },
+    { text: "freezing", correct: false }
+  ]},
+  { question: "Prétérit de « get » ?", answers: [
+    { text: "got", correct: true },
+    { text: "gotten", correct: false },
+    { text: "getted", correct: false },
+    { text: "get", correct: false }
+  ]},
+  { question: "Participe passé de « grow » ?", answers: [
+    { text: "grown", correct: true },
+    { text: "grew", correct: false },
+    { text: "growed", correct: false },
+    { text: "growing", correct: false }
+  ]},
+  { question: "Prétérit de « hold » ?", answers: [
+    { text: "held", correct: true },
+    { text: "holded", correct: false },
+    { text: "hold", correct: false },
+    { text: "holding", correct: false }
+  ]},
+  { question: "Participe passé de « keep » ?", answers: [
+    { text: "kept", correct: true },
+    { text: "keeped", correct: false },
+    { text: "kepten", correct: false },
+    { text: "keeping", correct: false }
+  ]},
+  { question: "Prétérit de « leave » ?", answers: [
+    { text: "left", correct: true },
+    { text: "leaved", correct: false },
+    { text: "leave", correct: false },
+    { text: "leaving", correct: false }
+  ]},
+  { question: "Participe passé de « ride » ?", answers: [
+    { text: "ridden", correct: true },
+    { text: "rode", correct: false },
+    { text: "rided", correct: false },
+    { text: "riding", correct: false }
+  ]},
+  { question: "Prétérit de « ring » ?", answers: [
+    { text: "rang", correct: true },
+    { text: "rung", correct: false },
+    { text: "ringed", correct: false },
+    { text: "ring", correct: false }
+  ]},
+  { question: "Participe passé de « shake » ?", answers: [
+    { text: "shaken", correct: true },
+    { text: "shook", correct: false },
+    { text: "shaked", correct: false },
+    { text: "shaking", correct: false }
+  ]},
+  { question: "Prétérit de « sing » ?", answers: [
+    { text: "sang", correct: true },
+    { text: "sung", correct: false },
+    { text: "singed", correct: false },
+    { text: "sing", correct: false }
+  ]},
+  { question: "Participe passé de « steal » ?", answers: [
+    { text: "stolen", correct: true },
+    { text: "stole", correct: false },
+    { text: "stealed", correct: false },
+    { text: "stealing", correct: false }
+  ]},
+  { question: "Prétérit de « swim » ?", answers: [
+    { text: "swam", correct: true },
+    { text: "swum", correct: false },
+    { text: "swimed", correct: false },
+    { text: "swim", correct: false }
+  ]},
+  { question: "Participe passé de « throw » ?", answers: [
+    { text: "thrown", correct: true },
+    { text: "threw", correct: false },
+    { text: "throwed", correct: false },
+    { text: "throwing", correct: false }
   ]}
 ];
