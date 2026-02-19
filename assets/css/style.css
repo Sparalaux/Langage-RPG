@@ -216,3 +216,119 @@ button:hover {
   font-size: 13px;
   opacity: 0.6;
 }
+
+
+/* =================================
+   TABLETTE (max 900px)
+================================= */
+
+@media (max-width: 900px) {
+
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .question-container {
+    width: 95%;
+    padding: 25px;
+  }
+
+  .question-texte {
+    font-size: 20px;
+  }
+
+  .statistiques {
+    font-size: 16px;
+  }
+
+  #menu {
+    width: 280px;
+    padding: 20px;
+  }
+
+  .reponses {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  button {
+    font-size: 15px;
+    padding: 10px 16px;
+  }
+
+}
+
+
+/* =================================
+   TELEPHONE (max 600px)
+================================= */
+
+@media (max-width: 600px) {
+
+  body {
+    overflow: auto; /* autorise scroll vertical si besoin */
+  }
+
+  .header {
+    padding: 15px 10px;
+  }
+
+  .header h1 {
+    font-size: 1.6rem;
+  }
+
+  .subtitle {
+    font-size: 12px;
+  }
+
+  .intro {
+    font-size: 13px;
+    padding: 0 15px;
+  }
+
+  #jeu {
+    padding: 10px;
+    justify-content: flex-start;
+  }
+
+  #menu {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .question-container {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .question-texte {
+    font-size: 18px;
+  }
+
+  .statistiques {
+    font-size: 15px;
+  }
+
+  /* réponses en colonne pour mobile */
+  .reponses {
+    grid-template-columns: 1fr;
+  }
+
+  .btn-reponse {
+    font-size: 15px;
+    padding: 14px;
+  }
+
+  .btn-potion {
+    width: 100%;
+  }
+
+  select {
+    font-size: 15px;
+  }
+
+  button {
+    width: 100%;
+  }
+
+}
