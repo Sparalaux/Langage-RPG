@@ -70,11 +70,20 @@ function afficherQuestionAleatoire(listeQuestions) {
   // Brancher les clics pour les réponses
   const boutons = document.querySelectorAll(".btn-reponse");
   boutons.forEach((bouton, index) => {
-    bouton.addEventListener("click", () => {
-      verifierReponse(reponsesMelangees[index]);
+  bouton.addEventListener("click", () => {
+
+    verifierReponse(reponsesMelangees[index]);
+
+    // vérifier si quelqu’un est mort
+    const fini = verifierFinDeJeu(listeQuestions);
+
+    // si la partie continue → prochaine question
+    if (!fini) {
       afficherQuestionAleatoire(listeQuestions);
-    });
+    }
+
   });
+});
 
   // Brancher le bouton potion
   const boutonPotion = document.querySelector("#btn-potion");
@@ -110,4 +119,51 @@ function usePotion(){
   } else{
     alert("vous n'avez plus de potion")
   }
+}
+
+
+function verifierFinDeJeu(listeQuestions) {
+
+  if (pv_ennemie <= 0) {
+    jeu.innerHTML = `
+      <div class="question-container">
+        <h1>🎉 Victoire !</h1>
+        <p>Le monstre est vaincu.</p>
+        <button id="btn-rejouer">Rejouer</button>
+      </div>
+    `;
+
+    document.querySelector("#btn-rejouer").addEventListener("click", () => {
+      resetGame();
+      lancerQuestion();
+    });
+
+    return true;
+  }
+
+  if (pv_joueur <= 0) {
+    jeu.innerHTML = `
+      <div class="question-container">
+        <h1>💀 Défaite...</h1>
+        <p>Vous avez été vaincu.</p>
+        <button id="btn-rejouer">Rejouer</button>
+      </div>
+    `;
+
+    document.querySelector("#btn-rejouer").addEventListener("click", () => {
+      resetGame();
+      lancerQuestion();
+    });
+
+    return true;
+  }
+
+  return false;
+}
+
+
+function resetGame() {
+  pv_joueur = 20;
+  pv_ennemie = 20;
+  potion = 2;
 }
