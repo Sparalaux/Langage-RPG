@@ -8,7 +8,8 @@ import {
 let pv_joueur = 20;
 let atq_joueur = 5;
 let potion = 2;
-let tour = 0;
+let tour = 1;
+const tourMax = 10;
 let pv_ennemie = 20;
 let atq_ennemie = 2;
 
@@ -49,6 +50,7 @@ function afficherQuestionAleatoire(listeQuestions) {
   jeu.innerHTML = `
     <div class="question-container">
       <div class="statistiques">
+        <p>⚔️ Tour : ${tour} / ${tourMax}</p>
         <p>🧝 Joueur : ${pv_joueur} PV | Potions : ${potion}</p>
         <p>👹 Ennemi : ${pv_ennemie} PV</p>
       </div>
@@ -124,11 +126,12 @@ function usePotion(){
 
 function verifierFinDeJeu(listeQuestions) {
 
-  if (pv_ennemie <= 0) {
+  // JOUEUR MORT
+  if (pv_joueur <= 0) {
     jeu.innerHTML = `
       <div class="question-container">
-        <h1>🎉 Victoire !</h1>
-        <p>Le monstre est vaincu.</p>
+        <h1>💀 Défaite...</h1>
+        <p>Vous avez été vaincu au tour ${tour}.</p>
         <button id="btn-rejouer">Rejouer</button>
       </div>
     `;
@@ -141,21 +144,34 @@ function verifierFinDeJeu(listeQuestions) {
     return true;
   }
 
-  if (pv_joueur <= 0) {
-    jeu.innerHTML = `
-      <div class="question-container">
-        <h1>💀 Défaite...</h1>
-        <p>Vous avez été vaincu.</p>
-        <button id="btn-rejouer">Rejouer</button>
-      </div>
-    `;
+  // ENNEMI MORT
+  if (pv_ennemie <= 0) {
 
-    document.querySelector("#btn-rejouer").addEventListener("click", () => {
-      resetGame();
-      lancerQuestion();
-    });
+    // dernier ennemi battu
+    if (tour >= tourMax) {
+      jeu.innerHTML = `
+        <div class="question-container">
+          <h1>🏆 Victoire Finale !</h1>
+          <p>Vous avez vaincu les ${tourMax} ennemis !</p>
+          <button id="btn-rejouer">Rejouer</button>
+        </div>
+      `;
 
-    return true;
+      document.querySelector("#btn-rejouer").addEventListener("click", () => {
+        resetGame();
+        lancerQuestion();
+      });
+
+      return true;
+    }
+
+    // sinon prochain tour
+    tour++;
+    pv_ennemie = 20 + 2; // difficulté progressive
+
+    alert(`Ennemi vaincu ! ⚔️\nUn nouvel ennemi apparaît (Tour ${tour})`);
+
+    return false;
   }
 
   return false;
@@ -166,4 +182,5 @@ function resetGame() {
   pv_joueur = 20;
   pv_ennemie = 20;
   potion = 2;
+  tour = 1;
 }
