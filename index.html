@@ -1,24 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Langage-RPG</title>
+    <title>Langage RPG</title>
 </head>
+
 <body>
+
+    <header class="header">
+        <h1>⚔️ Langage RPG ⚔️</h1>
+        <p class="subtitle">Apprends en combattant des monstres</p>
+    </header>
+
     <main id="jeu">
+
+        <section class="intro">
+            <p>
+                Bienvenue aventurier ! Choisis ta classe et affronte une série
+                d’ennemis en répondant correctement aux questions.
+                Chaque bonne réponse inflige des dégâts !
+            </p>
+        </section>
+
         <div id="menu">
             <select name="classe" id="classe">
-                <option value="guerrier">guerrier</option>
-                <option value="mage">mage</option>
-                <option value="voleur">voleur</option>
-                <option value="pretre">pretre</option>
+                <option value="guerrier">🗡️ Guerrier (Conjugaison)</option>
+                <option value="mage">🔮 Mage (Culture générale)</option>
+                <option value="voleur">🏹 Voleur (Math)</option>
+                <option value="pretre">✨ Prêtre (Anglais)</option>
             </select>
-            <button id="bouton_jouer">commencer le jeu</button>
+
+            <button id="bouton_jouer">Commencer l'aventure</button>
         </div>
+
     </main>
+
+    <footer class="footer">
+        <p>Projet ludique éducatif — Langage RPG</p>
+    </footer>
+
 <script type="module" src="./assets/js/script.js"></script>   
 </body>
-
 </html>
