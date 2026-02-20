@@ -1,9 +1,9 @@
-import {
-  question_guerrier,
-  question_mage,
-  question_voleur,
-  question_pretre
-} from "./question.js";
+import question_guerrier from "./quest_guerrier.js";
+import question_pretre from "./quest_pretre.js";
+import question_mage from "./quest_mage.js";
+import question_voleur from "./quest_voleur.js";
+import question_dompteur from "./quest_dompteur.js";
+import question_samourai from "./quest_samourai.js";
 
 let pv_joueur = 20;
 let atq_joueur = 5;
@@ -35,6 +35,12 @@ function lancerQuestion() {
       break;
     case "pretre":
       afficherQuestionAleatoire(question_pretre);
+      break;
+    case "dompteur":
+      afficherQuestionAleatoire(question_dompteur);
+      break;
+    case "samourai":
+      afficherQuestionAleatoire(question_samourai);
       break;
   }
 }
