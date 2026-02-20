@@ -1,9 +1,9 @@
-import question_guerrier from "./quest_guerrier.js";
-import question_pretre from "./quest_pretre.js";
-import question_mage from "./quest_mage.js";
-import question_voleur from "./quest_voleur.js";
-import question_dompteur from "./quest_dompteur.js";
-import question_samourai from "./quest_samourai.js";
+import {question_guerrier} from "./quest_guerrier.js";
+import {question_pretre} from "./quest_pretre.js";
+import {question_mage} from "./quest_mage.js";
+import {question_voleur} from "./quest_voleur.js";
+import {question_dompteur} from "./quest_dompteur.js";
+import {question_samourai} from "./quest_samourai.js";
 
 let pv_joueur = 20;
 let atq_joueur = 5;
@@ -16,34 +16,64 @@ let atq_ennemie = 2;
 
 const jeu = document.querySelector("#jeu");
 const bouton_jouer = document.querySelector("#bouton_jouer");
-const choix_classe = document.querySelector("#classe");
+
+
+
+let classeChoisie = null;
+
+document.querySelectorAll(".classe-card").forEach(card => {
+
+    card.addEventListener("click", () => {
+
+        document.querySelectorAll(".classe-card")
+            .forEach(c => c.classList.remove("selected"));
+
+        card.classList.add("selected");
+
+        classeChoisie = card.dataset.classe;
+    });
+
+});
 
 bouton_jouer.addEventListener("click", () => {
   lancerQuestion();
 });
 
 function lancerQuestion() {
-  switch (choix_classe.value) {
+
+  if (!classeChoisie) {
+    alert("Choisis une classe !");
+    return;
+  }
+
+  switch (classeChoisie) {
+
     case "guerrier":
       afficherQuestionAleatoire(question_guerrier);
       break;
+
     case "mage":
       afficherQuestionAleatoire(question_mage);
       break;
+
     case "voleur":
       afficherQuestionAleatoire(question_voleur);
       break;
+
     case "pretre":
       afficherQuestionAleatoire(question_pretre);
       break;
+
     case "dompteur":
       afficherQuestionAleatoire(question_dompteur);
       break;
+
     case "samourai":
       afficherQuestionAleatoire(question_samourai);
       break;
   }
 }
+
 
 function afficherQuestionAleatoire(listeQuestions) {
   const indexAleatoire = Math.floor(Math.random() * listeQuestions.length);

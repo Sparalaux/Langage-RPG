@@ -73,13 +73,15 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 18px;
+  gap: 25px;
 
   border: 2px solid rgba(255,255,255,0.2);
   background: rgba(255,255,255,0.05);
 
-  width: 320px;
-  padding: 25px;
+  width: 100%;
+  max-width: 720px;
+
+  padding: 30px;
 
   border-radius: 12px;
   backdrop-filter: blur(6px);
@@ -217,6 +219,109 @@ button:hover {
   opacity: 0.6;
 }
 
+/* =========================
+   CARTES CLASSES RPG
+========================= */
+
+.classes-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  justify-items: center;
+  width: 100%;
+}
+
+.classe-card {
+  width: 180px;
+  height: 240px;
+  perspective: 1000px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.classe-card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.classe-card.selected .card-inner {
+  transform: rotateY(180deg) scale(1.05);
+}
+
+/* faces */
+
+.card-front,
+.card-back {
+  position: absolute;
+  inset: 0;
+
+  border-radius: 12px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(6px);
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* face avant */
+
+.card-front h3 {
+  margin-bottom: 10px;
+}
+
+.card-front img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+}
+
+/* face arrière */
+
+.card-back {
+  transform: rotateY(180deg);
+
+  padding: 15px;
+  text-align: center;
+  gap: 8px;
+}
+
+/* titre arrière */
+.card-back h4 {
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+/* texte arrière */
+.card-back p {
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* effet sélection */
+
+.classe-card.selected {
+  outline: 3px solid #4CAF50;
+  border-radius: 12px;
+}
+
+
+
+
 
 /* =================================
    TABLETTE (max 900px)
@@ -254,6 +359,16 @@ button:hover {
   button {
     font-size: 15px;
     padding: 10px 16px;
+  }
+
+  .classes-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .classe-card {
+    width: 160px;
+    height: 220px;
   }
 
 }
@@ -331,4 +446,14 @@ button:hover {
     width: 100%;
   }
 
+
+  .classes-container {
+  grid-template-columns: 1fr;
+  width: 100%;
+}
+
+.classe-card {
+  width: 180px;
+  height: 220px;
+}
 }
