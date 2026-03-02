@@ -5,35 +5,69 @@ import {question_voleur} from "./quest_voleur.js";
 import {question_dompteur} from "./quest_dompteur.js";
 import {question_samourai} from "./quest_samourai.js";
 
+/* ============================
+   VARIABLES JEU
+============================ */
+
 let pv_joueur = 20;
 let atq_joueur = 5;
 let potion = 2;
 let tour = 1;
 const tourMax = 10;
-let pv_ennemie = 20;
+let pv_ennemie;
 let atq_ennemie = 2;
-
 
 const jeu = document.querySelector("#jeu");
 const bouton_jouer = document.querySelector("#bouton_jouer");
 
-
-
 let classeChoisie = null;
+
+/* ============================
+   IMAGES DES CLASSES
+============================ */
+
+const imagesClasses = {
+  guerrier: "assets/image/guerrier.png",
+  mage: "assets/image/mage.png",
+  voleur: "assets/image/voleur.png",
+  pretre: "assets/image/pretre.png",
+  dompteur: "assets/image/dompteur.png",
+  samourai: "assets/image/samourai.png"
+};
+
+/* ============================
+   ENNEMIS POSSIBLES
+============================ */
+
+const ennemis = [
+  { nom: "Gobelin", image: "assets/img/gobelin.png"},
+  { nom: "Orc", image: "assets/img/orc.png"},
+  { nom: "Démon", image: "assets/img/demon.png"}
+];
+
+let ennemiActuel = null;
+
+/* ============================
+   SELECTION CLASSE
+============================ */
 
 document.querySelectorAll(".classe-card").forEach(card => {
 
-    card.addEventListener("click", () => {
+  card.addEventListener("click", () => {
 
-        document.querySelectorAll(".classe-card")
-            .forEach(c => c.classList.remove("selected"));
+    document.querySelectorAll(".classe-card")
+      .forEach(c => c.classList.remove("selected"));
 
-        card.classList.add("selected");
+    card.classList.add("selected");
 
-        classeChoisie = card.dataset.classe;
-    });
+    classeChoisie = card.dataset.classe;
+  });
 
 });
+
+/* ============================
+   LANCER JEU
+============================ */
 
 bouton_jouer.addEventListener("click", () => {
   lancerQuestion();
@@ -46,45 +80,55 @@ function lancerQuestion() {
     return;
   }
 
+  genererNouvelEnnemi();
+
   switch (classeChoisie) {
-
-    case "guerrier":
-      afficherQuestionAleatoire(question_guerrier);
-      break;
-
-    case "mage":
-      afficherQuestionAleatoire(question_mage);
-      break;
-
-    case "voleur":
-      afficherQuestionAleatoire(question_voleur);
-      break;
-
-    case "pretre":
-      afficherQuestionAleatoire(question_pretre);
-      break;
-
-    case "dompteur":
-      afficherQuestionAleatoire(question_dompteur);
-      break;
-
-    case "samourai":
-      afficherQuestionAleatoire(question_samourai);
-      break;
+    case "guerrier": afficherQuestionAleatoire(question_guerrier); break;
+    case "mage": afficherQuestionAleatoire(question_mage); break;
+    case "voleur": afficherQuestionAleatoire(question_voleur); break;
+    case "pretre": afficherQuestionAleatoire(question_pretre); break;
+    case "dompteur": afficherQuestionAleatoire(question_dompteur); break;
+    case "samourai": afficherQuestionAleatoire(question_samourai); break;
   }
 }
 
+/* ============================
+   GENERER ENNEMI
+============================ */
+
+function genererNouvelEnnemi() {
+  const index = Math.floor(Math.random() * ennemis.length);
+  ennemiActuel = ennemis[index];
+  pv_ennemie = 20; // difficulté progressive
+}
+
+/* ============================
+   AFFICHAGE QUESTION
+============================ */
 
 function afficherQuestionAleatoire(listeQuestions) {
+
   const indexAleatoire = Math.floor(Math.random() * listeQuestions.length);
   const question = listeQuestions[indexAleatoire];
-
-  // Mélange les réponses
   const reponsesMelangees = melangerReponses(question.answers);
 
-  // HTML propre avec PV et potion
   jeu.innerHTML = `
     <div class="question-container">
+
+      <div class="combat-visual">
+        <div class="perso">
+          <img src="${imagesClasses[classeChoisie]}" alt="${classeChoisie}">
+          <p>${classeChoisie.toUpperCase()}</p>
+        </div>
+
+        <div class="vs">⚔️</div>
+
+        <div class="ennemi">
+          <img src="${ennemiActuel.image}" alt="${ennemiActuel.nom}">
+          <p>${ennemiActuel.nom}</p>
+        </div>
+      </div>
+
       <div class="statistiques">
         <p>⚔️ Tour : ${tour} / ${tourMax}</p>
         <p>🧝 Joueur : ${pv_joueur} PV | Potions : ${potion}</p>
@@ -95,100 +139,98 @@ function afficherQuestionAleatoire(listeQuestions) {
 
       <div class="reponses">
         ${reponsesMelangees.map((rep, index) => `
-          <button class="btn-reponse" data-index="${index}">
-            ${rep.text}
-          </button>
+          <button class="btn-reponse">${rep.text}</button>
         `).join("")}
       </div>
 
       <button id="btn-potion" class="btn-potion">💊 Utiliser une potion</button>
+
     </div>
   `;
 
-  // Brancher les clics pour les réponses
-  const boutons = document.querySelectorAll(".btn-reponse");
-  boutons.forEach((bouton, index) => {
-  bouton.addEventListener("click", () => {
+  document.querySelectorAll(".btn-reponse").forEach((bouton, index) => {
 
-    verifierReponse(reponsesMelangees[index]);
+    bouton.addEventListener("click", () => {
 
-    // vérifier si quelqu’un est mort
-    const fini = verifierFinDeJeu(listeQuestions);
+      verifierReponse(reponsesMelangees[index]);
 
-    // si la partie continue → prochaine question
-    if (!fini) {
-      afficherQuestionAleatoire(listeQuestions);
-    }
+      const fini = verifierFinDeJeu(listeQuestions);
+
+      if (!fini) {
+        afficherQuestionAleatoire(listeQuestions);
+      }
+
+    });
 
   });
-});
 
-  // Brancher le bouton potion
-  const boutonPotion = document.querySelector("#btn-potion");
-  boutonPotion.addEventListener("click", () => {
+  document.querySelector("#btn-potion").addEventListener("click", () => {
     usePotion();
-    // Réafficher la même question pour mettre à jour les PV et potion
     afficherQuestionAleatoire(listeQuestions);
   });
 }
 
+/* ============================
+   LOGIQUE COMBAT
+============================ */
+
 function verifierReponse(reponse) {
+
   if (reponse.correct) {
     alert("Bonne réponse ⚔️");
-    pv_ennemie -= atq_joueur
+    pv_ennemie -= atq_joueur;
   } else {
     alert("Mauvaise réponse 💀");
-    pv_joueur -= atq_ennemie
+    pv_joueur -= atq_ennemie;
   }
+
 }
 
-// utilitaire de mélange
 function melangerReponses(reponses) {
   return [...reponses].sort(() => Math.random() - 0.5);
 }
 
-function usePotion(){
-  if (potion>0){
-    pv_joueur+=10
-    if (pv_joueur>20){
-      pv_joueur = 20
-    }
-    potion-=1
-  } else{
-    alert("vous n'avez plus de potion")
+function usePotion() {
+
+  if (potion > 0) {
+    pv_joueur += 10;
+    if (pv_joueur > 20) pv_joueur = 20;
+    potion--;
+  } else {
+    alert("Vous n'avez plus de potion");
   }
+
 }
 
+/* ============================
+   FIN DE JEU
+============================ */
 
 function verifierFinDeJeu(listeQuestions) {
 
-  // JOUEUR MORT
   if (pv_joueur <= 0) {
+
     jeu.innerHTML = `
       <div class="question-container">
         <h1>💀 Défaite...</h1>
-        <p>Vous avez été vaincu au tour ${tour}.</p>
         <button id="btn-rejouer">Rejouer</button>
       </div>
     `;
 
     document.querySelector("#btn-rejouer").addEventListener("click", () => {
-      resetGame();
-      lancerQuestion();
+      location.reload();
     });
 
     return true;
   }
 
-  // ENNEMI MORT
   if (pv_ennemie <= 0) {
 
-    // dernier ennemi battu
     if (tour >= tourMax) {
+
       jeu.innerHTML = `
         <div class="question-container">
           <h1>🏆 Victoire Finale !</h1>
-          <p>Vous avez vaincu les ${tourMax} ennemis !</p>
           <button id="btn-rejouer">Rejouer</button>
         </div>
       `;
@@ -200,22 +242,10 @@ function verifierFinDeJeu(listeQuestions) {
       return true;
     }
 
-    // sinon prochain tour
     tour++;
-    pv_ennemie = 20 + 2; // difficulté progressive
-
     alert(`Ennemi vaincu ! ⚔️\nUn nouvel ennemi apparaît (Tour ${tour})`);
-
-    return false;
+    genererNouvelEnnemi();
   }
 
   return false;
-}
-
-
-function resetGame() {
-  pv_joueur = 20;
-  pv_ennemie = 20;
-  potion = 2;
-  tour = 1;
 }
