@@ -40,9 +40,12 @@ const imagesClasses = {
 ============================ */
 
 const ennemis = [
-  { nom: "Gobelin", image: "assets/img/gobelin.png"},
-  { nom: "Orc", image: "assets/img/orc.png"},
-  { nom: "Démon", image: "assets/img/demon.png"}
+  { nom: "bandit", image: "assets/image/bandit/bandit.png"},
+  { nom: "Orc", image: "assets/image/chevalier.png"},
+  { nom: "Démon", image: "assets/image/demon/demon.png"},
+  { nom: "Oni", image: "assets/image/oni/oni.png"},
+  { nom: "Orc", image: "assets/image/orc/orc.png"},
+  { nom: "Zombie", image: "assets/image/zombie/zombie.png"}
 ];
 
 let ennemiActuel = null;
