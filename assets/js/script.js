@@ -1,9 +1,9 @@
-import {question_guerrier} from "../../questions/quest_guerrier.js";
-import {question_pretre} from "../../questions/quest_pretre.js";
-import {question_mage} from "../../questions/quest_mage.js";
-import {question_voleur} from "../../questions/quest_voleur.js";
-import {question_dompteur} from "../../questions/quest_dompteur.js";
-import {question_samourai} from "../../questions/quest_samourai.js";
+import { question_guerrier } from "../../questions/quest_guerrier.js";
+import { question_pretre } from "../../questions/quest_pretre.js";
+import { question_mage } from "../../questions/quest_mage.js";
+import { question_voleur } from "../../questions/quest_voleur.js";
+import { question_dompteur } from "../../questions/quest_dompteur.js";
+import { question_samourai } from "../../questions/quest_samourai.js";
 
 /* ============================
    VARIABLES JEU
@@ -40,12 +40,12 @@ const imagesClasses = {
 ============================ */
 
 const ennemis = [
-  { nom: "bandit", image: "assets/image/bandit/bandit.png"},
-  { nom: "Orc", image: "assets/image/chevalier.png"},
-  { nom: "Démon", image: "assets/image/demon/demon.png"},
-  { nom: "Oni", image: "assets/image/oni/oni.png"},
-  { nom: "Orc", image: "assets/image/orc/orc.png"},
-  { nom: "Zombie", image: "assets/image/zombie/zombie.png"}
+  { nom: "bandit", image: "assets/image/bandit/bandit.png" },
+  { nom: "Orc", image: "assets/image/chevalier.png" },
+  { nom: "Démon", image: "assets/image/demon/demon.png" },
+  { nom: "Oni", image: "assets/image/oni/oni.png" },
+  { nom: "Orc", image: "assets/image/orc/orc.png" },
+  { nom: "Zombie", image: "assets/image/zombie/zombie.png" }
 ];
 
 let ennemiActuel = null;
@@ -155,21 +155,21 @@ function afficherQuestionAleatoire(listeQuestions) {
 
   document.querySelectorAll(".btn-reponse").forEach((bouton, index) => {
 
-  bouton.addEventListener("click", () => {
+    bouton.addEventListener("click", () => {
 
-  // désactive les boutons
-  document.querySelectorAll(".btn-reponse")
-    .forEach(btn => btn.disabled = true);
+      // désactive les boutons
+      document.querySelectorAll(".btn-reponse")
+        .forEach(btn => btn.disabled = true);
 
-  verifierReponse(reponsesMelangees[index]);
+      verifierReponse(reponsesMelangees[index]);
 
-  const fini = verifierFinDeJeu(listeQuestions);
+      const fini = verifierFinDeJeu(listeQuestions);
 
-  if (!fini) {
-    setTimeout(() => {
-      afficherQuestionAleatoire(listeQuestions);
-    }, 1000);
-  }
+      if (!fini) {
+        setTimeout(() => {
+          afficherQuestionAleatoire(listeQuestions);
+        }, 1000);
+      }
 
     });
 
@@ -200,6 +200,8 @@ function verifierReponse(reponse) {
 
     pv_joueur -= atq_ennemie;
 
+    flashScreen("damage");
+
     messageBox.innerHTML = `💀 Erreur ! -${atq_ennemie} PV`;
     messageBox.className = "message-combat error";
   }
@@ -216,10 +218,29 @@ function usePotion() {
     pv_joueur += 10;
     if (pv_joueur > 20) pv_joueur = 20;
     potion--;
+    flashScreen("heal");
   } else {
     alert("Vous n'avez plus de potion");
   }
 
+}
+
+function flashScreen(type) {
+
+  const overlay = document.getElementById("damage-overlay");
+
+  overlay.classList.remove("flash-damage", "flash-heal");
+
+  // force le restart animation
+  void overlay.offsetWidth;
+
+  if (type === "damage") {
+    overlay.classList.add("flash-damage");
+  }
+
+  if (type === "heal") {
+    overlay.classList.add("flash-heal");
+  }
 }
 
 /* ============================

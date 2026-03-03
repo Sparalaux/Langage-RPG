@@ -386,7 +386,49 @@ button:hover {
   100% { transform: translateY(0px); }
 }
 
+/* =========================
+   FLASH DEGATS / SOIN
+========================= */
 
+#damage-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 9999;
+}
+
+/* Flash rouge */
+.flash-damage {
+  animation: damageFlash 1s ease;
+}
+
+@keyframes damageFlash {
+  0% {
+    opacity: 0.8;
+    box-shadow: inset 0 0 120px 60px rgba(255, 0, 0, 0.8);
+  }
+  100% {
+    opacity: 0;
+    box-shadow: inset 0 0 0px 0px rgba(255, 0, 0, 0);
+  }
+}
+
+/* Flash vert */
+.flash-heal {
+  animation: healFlash 1s ease;
+}
+
+@keyframes healFlash {
+  0% {
+    opacity: 0.8;
+    box-shadow: inset 0 0 120px 60px rgba(0, 255, 100, 0.8);
+  }
+  100% {
+    opacity: 0;
+    box-shadow: inset 0 0 0px 0px rgba(0, 255, 100, 0);
+  }
+}
 
 /* =================================
    TABLETTE (max 900px)
