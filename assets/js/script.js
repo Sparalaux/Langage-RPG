@@ -16,6 +16,8 @@ let tour = 1;
 const tourMax = 10;
 let pv_ennemie;
 let atq_ennemie = 2;
+let pv_boss;
+let atq_boss = 5;
 
 const jeu = document.querySelector("#jeu");
 const bouton_jouer = document.querySelector("#bouton_jouer");
@@ -50,6 +52,13 @@ const ennemis = [
 
 let ennemiActuel = null;
 
+const boss = [
+  { nom: "Roi Demon", image: "assets/image/boss/RoiDemon.png", pv: 50 },
+  { nom: "Dragon", image: "assets/image/boss/Dragon.png", pv: 60 },
+];
+
+let bossActuel = null;
+let estBoss = false;
 /* ============================
    SELECTION CLASSE
 ============================ */
@@ -83,7 +92,12 @@ function lancerQuestion() {
     return;
   }
 
-  genererNouvelEnnemi();
+  if (tour === tourMax) {
+    genererNouveauBoss();
+  } else {
+    genererNouvelEnnemi();
+    estBoss = false;
+  }
 
   switch (classeChoisie) {
     case "guerrier": afficherQuestionAleatoire(question_guerrier); break;
@@ -103,6 +117,14 @@ function genererNouvelEnnemi() {
   const index = Math.floor(Math.random() * ennemis.length);
   ennemiActuel = ennemis[index];
   pv_ennemie = 20; // difficulté progressive
+}
+
+function genererNouveauBoss() {
+  const index = Math.floor(Math.random() * boss.length);
+  bossActuel = boss[index];
+  pv_ennemie = bossActuel.pv; // le boss utilise pv_ennemie
+  atq_ennemie = atq_boss;
+  estBoss = true;
 }
 
 /* ============================
@@ -127,15 +149,17 @@ function afficherQuestionAleatoire(listeQuestions) {
         <div class="vs">⚔️</div>
 
         <div class="ennemi">
-          <img src="${ennemiActuel.image}" alt="${ennemiActuel.nom}">
-          <p>${ennemiActuel.nom}</p>
+          <img src="${estBoss ? bossActuel.image : ennemiActuel.image}" 
+          alt="${estBoss ? bossActuel.nom : ennemiActuel.nom}">
+
+          <p>${estBoss ? bossActuel.nom : ennemiActuel.nom}</p>
         </div>
       </div>
 
       <div class="statistiques">
         <p>⚔️ Tour : ${tour} / ${tourMax}</p>
         <p>🧝 Joueur : ${pv_joueur} PV | Potions : ${potion}</p>
-        <p>👹 Ennemi : ${pv_ennemie} PV</p>
+        <p>👹 ${estBoss ? "BOSS" : "Ennemi"} : ${pv_ennemie} PV</p>
       </div>
 
       <h2 class="question-texte">${question.question}</h2>
@@ -267,14 +291,16 @@ function verifierFinDeJeu(listeQuestions) {
 
   if (pv_ennemie <= 0) {
 
-    if (tour >= tourMax) {
+    // Si c'était le boss → victoire finale
+    if (estBoss) {
 
       jeu.innerHTML = `
-        <div class="question-container">
-          <h1>🏆 Victoire Finale !</h1>
-          <button id="btn-rejouer">Rejouer</button>
-        </div>
-      `;
+      <div class="question-container">
+        <h1>🔥 BOSS VAINCU ! 🔥</h1>
+        <h2>🏆 Victoire Finale !</h2>
+        <button id="btn-rejouer">Rejouer</button>
+      </div>
+    `;
 
       document.querySelector("#btn-rejouer").addEventListener("click", () => {
         location.reload();
@@ -283,9 +309,15 @@ function verifierFinDeJeu(listeQuestions) {
       return true;
     }
 
+    // Sinon ennemi normal
     tour++;
     alert(`Ennemi vaincu ! ⚔️\nUn nouvel ennemi apparaît (Tour ${tour})`);
-    genererNouvelEnnemi();
+
+    if (tour === tourMax) {
+      genererNouveauBoss();
+    } else {
+      genererNouvelEnnemi();
+    }
   }
 
   return false;
