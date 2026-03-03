@@ -1,9 +1,9 @@
-import {question_guerrier} from "./quest_guerrier.js";
-import {question_pretre} from "./quest_pretre.js";
-import {question_mage} from "./quest_mage.js";
-import {question_voleur} from "./quest_voleur.js";
-import {question_dompteur} from "./quest_dompteur.js";
-import {question_samourai} from "./quest_samourai.js";
+import {question_guerrier} from "../../questions/quest_guerrier.js";
+import {question_pretre} from "../../questions/quest_pretre.js";
+import {question_mage} from "../../questions/quest_mage.js";
+import {question_voleur} from "../../questions/quest_voleur.js";
+import {question_dompteur} from "../../questions/quest_dompteur.js";
+import {question_samourai} from "../../questions/quest_samourai.js";
 
 /* ============================
    VARIABLES JEU
