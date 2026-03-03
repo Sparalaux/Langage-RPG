@@ -27,12 +27,12 @@ let classeChoisie = null;
 ============================ */
 
 const imagesClasses = {
-  guerrier: "assets/image/guerrier.png",
-  mage: "assets/image/mage.png",
-  voleur: "assets/image/voleur.png",
-  pretre: "assets/image/pretre.png",
-  dompteur: "assets/image/dompteur.png",
-  samourai: "assets/image/samourai.png"
+  guerrier: "assets/image/joueur/guerrier.png",
+  mage: "assets/image/joueur/mage.png",
+  voleur: "assets/image/joueur/voleur.png",
+  pretre: "assets/image/joueur/pretre.png",
+  dompteur: "assets/image/joueur/dompteur.png",
+  samourai: "assets/image/joueur/samourai.png"
 };
 
 /* ============================
@@ -140,6 +140,8 @@ function afficherQuestionAleatoire(listeQuestions) {
 
       <h2 class="question-texte">${question.question}</h2>
 
+      <div id="message-combat" class="message-combat"></div>
+
       <div class="reponses">
         ${reponsesMelangees.map((rep, index) => `
           <button class="btn-reponse">${rep.text}</button>
@@ -153,15 +155,21 @@ function afficherQuestionAleatoire(listeQuestions) {
 
   document.querySelectorAll(".btn-reponse").forEach((bouton, index) => {
 
-    bouton.addEventListener("click", () => {
+  bouton.addEventListener("click", () => {
 
-      verifierReponse(reponsesMelangees[index]);
+  // désactive les boutons
+  document.querySelectorAll(".btn-reponse")
+    .forEach(btn => btn.disabled = true);
 
-      const fini = verifierFinDeJeu(listeQuestions);
+  verifierReponse(reponsesMelangees[index]);
 
-      if (!fini) {
-        afficherQuestionAleatoire(listeQuestions);
-      }
+  const fini = verifierFinDeJeu(listeQuestions);
+
+  if (!fini) {
+    setTimeout(() => {
+      afficherQuestionAleatoire(listeQuestions);
+    }, 1000);
+  }
 
     });
 
@@ -179,12 +187,21 @@ function afficherQuestionAleatoire(listeQuestions) {
 
 function verifierReponse(reponse) {
 
+  const messageBox = document.querySelector("#message-combat");
+
   if (reponse.correct) {
-    alert("Bonne réponse ⚔️");
+
     pv_ennemie -= atq_joueur;
+
+    messageBox.innerHTML = `⚔️ Coup réussi ! -${atq_joueur} PV à l'ennemi`;
+    messageBox.className = "message-combat success";
+
   } else {
-    alert("Mauvaise réponse 💀");
+
     pv_joueur -= atq_ennemie;
+
+    messageBox.innerHTML = `💀 Erreur ! -${atq_ennemie} PV`;
+    messageBox.className = "message-combat error";
   }
 
 }

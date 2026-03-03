@@ -358,6 +358,28 @@ button:hover {
   animation: float 3s ease-in-out infinite reverse;
 }
 
+
+.message-combat {
+  margin: 15px 0;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.message-combat.success {
+  background-color: rgba(0, 200, 0, 0.2);
+  color: #00ff88;
+  border: 1px solid #00ff88;
+}
+
+.message-combat.error {
+  background-color: rgba(200, 0, 0, 0.2);
+  color: #ff4d4d;
+  border: 1px solid #ff4d4d;
+}
+
 @keyframes float {
   0% { transform: translateY(0px); }
   50% { transform: translateY(-8px); }
