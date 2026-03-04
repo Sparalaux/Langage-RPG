@@ -36,13 +36,22 @@ const imagesClasses = {
   samourai: "assets/image/joueur/samourai.png"
 };
 
+const avantages = {
+  guerrier: "Bandit",
+  pretre: "Zombie",
+  mage: "Démon",
+  voleur: "Chevalier",
+  dompteur: "Orc",
+  samourai: "Oni"
+};
+
 /* ============================
    ENNEMIS POSSIBLES
 ============================ */
 
 const ennemis = [
-  { nom: "bandit", image: "assets/image/bandit/bandit.png" },
-  { nom: "Orc", image: "assets/image/chevalier.png" },
+  { nom: "Bandit", image: "assets/image/bandit/bandit.png" },
+  { nom: "Chevalier", image: "assets/image/chevalier.png" },
   { nom: "Démon", image: "assets/image/demon/demon.png" },
   { nom: "Oni", image: "assets/image/oni/oni.png" },
   { nom: "Orc", image: "assets/image/orc/orc.png" },
@@ -214,10 +223,24 @@ function verifierReponse(reponse) {
 
   if (reponse.correct) {
 
-    pv_ennemie -= atq_joueur;
+    let degats = atq_joueur;
 
-    messageBox.innerHTML = `⚔️ Coup réussi ! -${atq_joueur} PV à l'ennemi`;
-    messageBox.className = "message-combat success";
+    // Vérifie si la classe a un avantage
+    const nomEnnemi = estBoss ? bossActuel.nom : ennemiActuel.nom;
+
+    if (avantages[classeChoisie] === nomEnnemi) {
+      degats += 3;
+    }
+
+    pv_ennemie -= degats;
+
+    if (degats > atq_joueur) {
+      messageBox.innerHTML = `🔥 Avantage ! -${degats} PV`;
+      messageBox.className = "message-combat success";
+    } else {
+      messageBox.innerHTML = `⚔️ Coup réussi ! -${degats} PV`;
+      messageBox.className = "message-combat success";
+    }
 
   } else {
 
@@ -228,7 +251,6 @@ function verifierReponse(reponse) {
     messageBox.innerHTML = `💀 Erreur ! -${atq_ennemie} PV`;
     messageBox.className = "message-combat error";
   }
-
 }
 
 function melangerReponses(reponses) {
