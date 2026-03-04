@@ -16,7 +16,6 @@ let tour = 1;
 const tourMax = 10;
 let pv_ennemie;
 let atq_ennemie = 2;
-let pv_boss;
 let atq_boss = 5;
 
 const jeu = document.querySelector("#jeu");
