@@ -154,7 +154,7 @@ button:hover {
 
 .reponses {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 15px;
   width: 100%;
 }
@@ -242,7 +242,20 @@ button:hover {
 }
 
 .classe-card.selected .card-inner {
-  transform: rotateY(180deg) scale(1.05);
+  transform: rotateY(180deg);
+}
+
+.classe-card.selected {
+  border: 3px solid #4CAF50;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #4CAF50, 0 0 40px #4CAF50 inset;
+  animation: pulseSelect 1.5s infinite;
+}
+
+@keyframes pulseSelect {
+  0% { box-shadow: 0 0 10px #4CAF50; }
+  50% { box-shadow: 0 0 25px #4CAF50; }
+  100% { box-shadow: 0 0 10px #4CAF50; }
 }
 
 .card-front,
@@ -298,6 +311,112 @@ button:hover {
 
 .vs {
   font-size: 28px;
+}
+
+/* =========================
+   MESSAGE COMBAT
+========================= */
+
+.message-combat {
+  margin-top: 15px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.message-damage {
+  border: 2px solid #ff4d4d;
+  color: #ff4d4d;
+  background: rgba(255, 0, 0, 0.1);
+}
+
+.message-heal {
+  border: 2px solid #4CAF50;
+  color: #4CAF50;
+  background: rgba(0, 255, 0, 0.1);
+}
+
+
+/* =========================
+   FLASH SCREEN DAMAGE / HEAL (BORDS SEULEMENT)
+========================= */
+
+#damage-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* Flash rouge (dégâts) */
+.flash-damage {
+  animation: flashRed 0.5s ease;
+}
+
+/* Flash vert (soin) */
+.flash-heal {
+  animation: flashGreen 0.5s ease;
+}
+
+/* Animation dégâts */
+@keyframes flashRed {
+  0% {
+    background: radial-gradient(
+      circle at center,
+      rgba(255, 0, 0, 0) 40%,
+      rgba(255, 0, 0, 0.6) 100%
+    );
+  }
+  100% {
+    background: radial-gradient(
+      circle at center,
+      rgba(255, 0, 0, 0) 60%,
+      rgba(255, 0, 0, 0) 100%
+    );
+  }
+}
+
+/* Animation soin */
+@keyframes flashGreen {
+  0% {
+    background: radial-gradient(
+      circle at center,
+      rgba(0, 255, 0, 0) 40%,
+      rgba(0, 255, 0, 0.6) 100%
+    );
+  }
+  100% {
+    background: radial-gradient(
+      circle at center,
+      rgba(0, 255, 0, 0) 60%,
+      rgba(0, 255, 0, 0) 100%
+    );
+  }
+}
+
+/* =========================
+   ANIMATION PERSONNAGES
+========================= */
+
+.perso img,
+.ennemi img {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  animation: floatIdle 3s ease-in-out infinite;
+}
+
+@keyframes floatIdle {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 /* =========================

@@ -242,10 +242,10 @@ function verifierReponse(reponse) {
 
     if (degats > atq_joueur) {
       messageBox.innerHTML = `🔥 Avantage ! -${degats} PV`;
-      messageBox.className = "message-combat success";
+      messageBox.className = "message-combat success message-heal";
     } else {
       messageBox.innerHTML = `⚔️ Coup réussi ! -${degats} PV`;
-      messageBox.className = "message-combat success";
+      messageBox.className = "message-combat success message-heal";
     }
 
   } else {
@@ -255,7 +255,7 @@ function verifierReponse(reponse) {
     flashScreen("damage");
 
     messageBox.innerHTML = `💀 Erreur ! -${atq_ennemie} PV`;
-    messageBox.className = "message-combat error";
+    messageBox.className = "message-combat error message-damage";
   }
 }
 
