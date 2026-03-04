@@ -4,6 +4,8 @@ import { question_mage } from "../../questions/quest_mage.js";
 import { question_voleur } from "../../questions/quest_voleur.js";
 import { question_dompteur } from "../../questions/quest_dompteur.js";
 import { question_samourai } from "../../questions/quest_samourai.js";
+import { question_archer } from "../../questions/quest_archer.js";
+import { question_barde } from "../../questions/quest_barde.js";
 
 /* ============================
    VARIABLES JEU
@@ -33,7 +35,9 @@ const imagesClasses = {
   voleur: "assets/image/joueur/voleur.png",
   pretre: "assets/image/joueur/pretre.png",
   dompteur: "assets/image/joueur/dompteur.png",
-  samourai: "assets/image/joueur/samourai.png"
+  samourai: "assets/image/joueur/samourai.png",
+  archer: "assets/image/joueur/archer.png",
+  barde: "assets/image/joueur/barde.png"
 };
 
 const avantages = {
@@ -114,6 +118,8 @@ function lancerQuestion() {
     case "pretre": afficherQuestionAleatoire(question_pretre); break;
     case "dompteur": afficherQuestionAleatoire(question_dompteur); break;
     case "samourai": afficherQuestionAleatoire(question_samourai); break;
+    case "archer": afficherQuestionAleatoire(question_archer); break;
+    case "barde": afficherQuestionAleatoire(question_barde); break;
   }
 }
 
