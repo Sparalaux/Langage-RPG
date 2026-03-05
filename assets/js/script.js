@@ -6,6 +6,8 @@ import { question_dompteur } from "../../questions/quest_dompteur.js";
 import { question_samourai } from "../../questions/quest_samourai.js";
 import { question_archer } from "../../questions/quest_archer.js";
 import { question_barde } from "../../questions/quest_barde.js";
+import { question_moine } from "../../questions/quest_moine.js";
+import { question_herboriste } from "../../questions/quest_herboriste.js";
 
 /* ============================
    VARIABLES JEU
@@ -37,7 +39,9 @@ const imagesClasses = {
   dompteur: "assets/image/joueur/dompteur.png",
   samourai: "assets/image/joueur/samourai.png",
   archer: "assets/image/joueur/archer.png",
-  barde: "assets/image/joueur/barde.png"
+  barde: "assets/image/joueur/barde.png",
+  moine: "assets/image/joueur/moine.png",
+  herboriste: "assets/image/joueur/herboriste.png"
 };
 
 const avantages = {
@@ -120,6 +124,8 @@ function lancerQuestion() {
     case "samourai": afficherQuestionAleatoire(question_samourai); break;
     case "archer": afficherQuestionAleatoire(question_archer); break;
     case "barde": afficherQuestionAleatoire(question_barde); break;
+    case "moine": afficherQuestionAleatoire(question_moine); break;
+    case "herboriste": afficherQuestionAleatoire(question_herboriste); break;
   }
 }
 
