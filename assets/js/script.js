@@ -59,7 +59,7 @@ const avantages = {
 
 const ennemis = [
   { nom: "Bandit", image: "assets/image/bandit/bandit.png" },
-  { nom: "Chevalier", image: "assets/image/chevalier.png" },
+  { nom: "Chevalier", image: "assets/image/chevalier/chevalier.png" },
   { nom: "Démon", image: "assets/image/demon/demon.png" },
   { nom: "Oni", image: "assets/image/oni/oni.png" },
   { nom: "Orc", image: "assets/image/orc/orc.png" },
@@ -258,7 +258,7 @@ function verifierReponse(reponse) {
 
     pv_joueur -= atq_ennemie;
 
-    flashScreen("damage");
+    updateDangerEffect(pv_joueur, 20)
 
     messageBox.innerHTML = `💀 Erreur ! -${atq_ennemie} PV`;
     messageBox.className = "message-combat error message-damage";
@@ -298,6 +298,24 @@ function flashScreen(type) {
   if (type === "heal") {
     overlay.classList.add("flash-heal");
   }
+}
+
+function updateDangerEffect(pvJoueur, pvMax) {
+
+  const overlay = document.getElementById("damage-overlay")
+
+  const ratio = pvJoueur / pvMax
+
+  const danger = 1 - ratio
+
+  if (ratio < 0.25) {
+  overlay.classList.add("low-hp")
+} else {
+  overlay.classList.remove("low-hp")
+}
+
+  overlay.style.setProperty("--danger-level", danger)
+
 }
 
 /* ============================

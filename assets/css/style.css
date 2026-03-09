@@ -347,35 +347,40 @@ button:hover {
   inset: 0;
   pointer-events: none;
   z-index: 999;
+
+  --danger-level: 0;
+
+  background: radial-gradient(
+    circle at center,
+    rgba(255,0,0,0) 40%,
+    rgba(255,0,0,var(--danger-level)) 100%
+  );
+
+  transition: background 0.3s;
 }
 
-/* Flash rouge (dégâts) */
-.flash-damage {
-  animation: flashRed 0.5s ease;
+@keyframes dangerPulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
 }
+
+#damage-overlay.low-hp {
+  animation: dangerPulse 0.8s infinite;
+}
+
 
 /* Flash vert (soin) */
 .flash-heal {
   animation: flashGreen 0.5s ease;
 }
 
-/* Animation dégâts */
-@keyframes flashRed {
-  0% {
-    background: radial-gradient(
-      circle at center,
-      rgba(255, 0, 0, 0) 40%,
-      rgba(255, 0, 0, 0.6) 100%
-    );
-  }
-  100% {
-    background: radial-gradient(
-      circle at center,
-      rgba(255, 0, 0, 0) 60%,
-      rgba(255, 0, 0, 0) 100%
-    );
-  }
-}
 
 /* Animation soin */
 @keyframes flashGreen {
@@ -401,10 +406,17 @@ button:hover {
 
 .perso img,
 .ennemi img {
-  width: 110px;
-  height: 110px;
+  width: 180px;
+  height: 180px;
   object-fit: contain;
   animation: floatIdle 3s ease-in-out infinite;
+  filter: drop-shadow(0 8px 10px rgba(0,0,0,0.6));
+  transition: transform 0.2s;
+}
+
+.perso img:hover,
+.ennemi img:hover {
+  transform: scale(1.05);
 }
 
 @keyframes floatIdle {
