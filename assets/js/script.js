@@ -75,6 +75,24 @@ const boss = [
 
 let bossActuel = null;
 let estBoss = false;
+
+/* ============================
+   SONS
+============================ */
+
+const music = new Audio("assets/audio/music.mp3");
+const soundHit = new Audio("assets/audio/hit.wav");
+const soundHeal = new Audio("assets/audio/heal.wav");
+
+music.loop = true;
+music.volume = 0.2;
+
+soundHit.volume = 0.6;
+soundHeal.volume = 0.6;
+
+
+
+
 /* ============================
    SELECTION CLASSE
 ============================ */
@@ -98,6 +116,7 @@ document.querySelectorAll(".classe-card").forEach(card => {
 ============================ */
 
 bouton_jouer.addEventListener("click", () => {
+  music.play();
   lancerQuestion();
 });
 
@@ -258,6 +277,9 @@ function verifierReponse(reponse) {
 
     pv_joueur -= atq_ennemie;
 
+    soundHit.currentTime = 0;
+    soundHit.play();
+
     updateDangerEffect(pv_joueur, 20)
 
     messageBox.innerHTML = `💀 Erreur ! -${atq_ennemie} PV`;
@@ -275,6 +297,8 @@ function usePotion() {
     pv_joueur += 10;
     if (pv_joueur > 20) pv_joueur = 20;
     potion--;
+    soundHeal.currentTime = 0;
+    soundHeal.play();
     flashScreen("heal");
   } else {
     alert("Vous n'avez plus de potion");

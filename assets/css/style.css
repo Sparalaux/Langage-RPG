@@ -399,7 +399,7 @@ button:hover {
 
 /* Flash vert (soin) */
 .flash-heal {
-  animation: flashGreen 0.5s ease;
+  animation: flashGreen 1.5s ease;
 }
 
 
