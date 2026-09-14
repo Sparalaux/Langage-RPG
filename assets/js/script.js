@@ -9,6 +9,19 @@ import { question_barde } from "../../questions/quest_barde.js";
 import { question_moine } from "../../questions/quest_moine.js";
 import { question_herboriste } from "../../questions/quest_herboriste.js";
 
+const questionsRoi = [
+  ...question_guerrier,
+  ...question_pretre,
+  ...question_mage,
+  ...question_voleur,
+  ...question_dompteur,
+  ...question_samourai,
+  ...question_archer,
+  ...question_barde,
+  ...question_moine,
+  ...question_herboriste
+];
+
 /* ============================
    VARIABLES JEU
 ============================ */
@@ -41,7 +54,9 @@ const imagesClasses = {
   archer: "assets/image/joueur/archer.png",
   barde: "assets/image/joueur/barde.png",
   moine: "assets/image/joueur/moine.png",
-  herboriste: "assets/image/joueur/herboriste.png"
+  herboriste: "assets/image/joueur/herboriste.png",
+  roi: "assets/image/joueur/roi.png",
+  empereur: "assets/image/joueur/empereur.png"
 };
 
 const avantages = {
@@ -145,6 +160,7 @@ function lancerQuestion() {
     case "barde": afficherQuestionAleatoire(question_barde); break;
     case "moine": afficherQuestionAleatoire(question_moine); break;
     case "herboriste": afficherQuestionAleatoire(question_herboriste); break;
+    case "roi": afficherQuestionAleatoire(questionsRoi); break;
   }
 }
 
