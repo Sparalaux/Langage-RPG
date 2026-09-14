@@ -452,11 +452,55 @@ function verifierFinDeJeu(listeQuestions) {
 
 function classeEstDebloquee(classe) {
 
-  if (classe === "empereur") {
+  if (classe === "samourai") {
 
     return (
-      sauvegarde.classesTerminees.includes("guerrier") &&
+      sauvegarde.classesTerminees.includes("guerrier")
+    );
+
+  }
+  if (classe === "dompteur") {
+
+    return (
       sauvegarde.classesTerminees.includes("mage")
+    );
+
+  }
+  if (classe === "archer") {
+
+    return (
+      sauvegarde.classesTerminees.includes("voleur")
+    );
+
+  }
+  if (classe === "barde") {
+
+    return (
+      sauvegarde.classesTerminees.includes("pretre")
+    );
+
+  }
+  if (classe === "moine") {
+
+    return (
+      sauvegarde.classesTerminees.includes("samourai")&&
+      sauvegarde.classesTerminees.includes("dompteur")
+    );
+
+  }
+  if (classe === "herboriste") {
+
+    return (
+      sauvegarde.classesTerminees.includes("archer")&&
+      sauvegarde.classesTerminees.includes("barde")
+    );
+
+  }
+  if (classe === "roi") {
+
+    return (
+      sauvegarde.classesTerminees.includes("moine")&&
+      sauvegarde.classesTerminees.includes("herboriste")
     );
 
   }
