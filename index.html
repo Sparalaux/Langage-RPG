@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <!-- META BASIQUES -->
     <meta charset="UTF-8">
@@ -8,9 +9,11 @@
     <!-- SEO -->
     <title>Langage RPG - Jeu éducatif de quiz en JavaScript</title>
 
-    <meta name="description" content="Langage RPG est un mini-jeu éducatif en JavaScript où vous combattez des monstres en répondant à des questions de culture générale, maths, géographie et plus encore.">
+    <meta name="description"
+        content="Langage RPG est un mini-jeu éducatif en JavaScript où vous combattez des monstres en répondant à des questions de culture générale, maths, géographie et plus encore.">
 
-    <meta name="keywords" content="jeu éducatif, quiz, RPG, JavaScript, apprendre en jouant, projet portfolio, Langage RPG">
+    <meta name="keywords"
+        content="jeu éducatif, quiz, RPG, JavaScript, apprendre en jouant, projet portfolio, Langage RPG">
 
     <meta name="author" content="Theo Deletang">
 
@@ -22,7 +25,8 @@
 
     <!-- OPEN GRAPH (partage réseaux sociaux) -->
     <meta property="og:title" content="Langage RPG - Jeu éducatif RPG">
-    <meta property="og:description" content="Affrontez des monstres en répondant à des questions ! Un mini RPG éducatif développé en JavaScript.">
+    <meta property="og:description"
+        content="Affrontez des monstres en répondant à des questions ! Un mini RPG éducatif développé en JavaScript.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ton-site.com/langage-rpg">
     <meta property="og:image" content="https://ton-site.com/assets/image/preview.png">
@@ -30,7 +34,8 @@
     <!-- TWITTER CARD -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Langage RPG - Jeu éducatif RPG">
-    <meta name="twitter:description" content="Combattez des monstres en répondant à des quiz dans ce mini RPG éducatif.">
+    <meta name="twitter:description"
+        content="Combattez des monstres en répondant à des quiz dans ce mini RPG éducatif.">
     <meta name="twitter:image" content="https://ton-site.com/assets/image/preview.png">
 
     <!-- FAVICON -->
@@ -41,6 +46,7 @@
 </head>
 
 <div id="damage-overlay"></div>
+
 <body>
 
     <header class="header">
@@ -61,170 +67,179 @@
 
         <div id="menu">
 
-    <div class="classes-container">
+            <div class="classes-container">
 
-        <div class="classe-card" data-classe="guerrier">
-            <div class="card-inner">
-                <div class="card-front">
-                    <h3>🗡️ Guerrier</h3>
-                    <img src="./assets/image/joueur/guerrier.png" alt="Guerrier">
+                <div class="classe-card" data-classe="guerrier">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h3>🗡️ Guerrier</h3>
+                            <img src="./assets/image/joueur/guerrier.png" alt="Guerrier">
+                        </div>
+                        <div class="card-back">
+                            <h4>Guerrier</h4>
+                            <p>Thème : Conjugaison</p>
+                            <p>Force brute et maîtrise des verbes.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-back">
-                    <h4>Guerrier</h4>
-                    <p>Thème : Conjugaison</p>
-                    <p>Force brute et maîtrise des verbes.</p>
+
+                <div class="classe-card" data-classe="mage">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h3>🔮 Mage</h3>
+                            <img src="./assets/image/joueur/mage.png" alt="Mage">
+                        </div>
+                        <div class="card-back">
+                            <h4>Mage</h4>
+                            <p>Thème : Culture générale</p>
+                            <p>Savoir et intelligence.</p>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="classe-card" data-classe="voleur">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h3>🏹 Voleur</h3>
+                            <img src="./assets/image/joueur/voleur.png" alt="Voleur">
+                        </div>
+                        <div class="card-back">
+                            <h4>Voleur</h4>
+                            <p>Thème : Mathématiques</p>
+                            <p>Rapidité et précision.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="classe-card" data-classe="pretre">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h3>✨ Prêtre</h3>
+                            <img src="./assets/image/joueur/pretre.png" alt="Prêtre">
+                        </div>
+                        <div class="card-back">
+                            <h4>Prêtre</h4>
+                            <p>Thème : Anglais</p>
+                            <p>Sagesse et guérison.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="classe-card" data-classe="dompteur">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h3>🐺 Dompteur</h3>
+                            <img src="./assets/image/joueur/dompteur.png" alt="Dompteur">
+                        </div>
+                        <div class="card-back">
+                            <h4>Dompteur</h4>
+                            <p>Thème : Animaux</p>
+                            <p>Maître des créatures.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="classe-card" data-classe="samourai">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h3>⚔️ Samouraï</h3>
+                            <img src="./assets/image/joueur/samourai.png" alt="Samourai">
+                        </div>
+                        <div class="card-back">
+                            <h4>Samouraï</h4>
+                            <p>Thème : Japonais</p>
+                            <p>Honneur et discipline.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="classe-card" data-classe="archer">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h3>🏹 Archer</h3>
+                            <img src="./assets/image/joueur/archer.png" alt="Archer">
+                        </div>
+                        <div class="card-back">
+                            <h4>Archer</h4>
+                            <p>Thème : Geographie</p>
+                            <p>vise avec précision.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="classe-card" data-classe="barde">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h3>🎵 Barde</h3>
+                            <img src="./assets/image/joueur/barde.png" alt="Barde">
+                        </div>
+                        <div class="card-back">
+                            <h4>barde</h4>
+                            <p>Thème : Musique</p>
+                            <p>sors tes instruments.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="classe-card" data-classe="moine">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h3>🥋 Moine</h3>
+                            <img src="./assets/image/joueur/moine.png" alt="Moine">
+                        </div>
+                        <div class="card-back">
+                            <h4>Moine</h4>
+                            <p>Thème : Histoire</p>
+                            <p>soyez plein de sagesse.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="classe-card" data-classe="herboriste">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h3>🌿 Herboriste</h3>
+                            <img src="./assets/image/joueur/herboriste.png" alt="Herboriste">
+                        </div>
+                        <div class="card-back">
+                            <h4>Herboriste</h4>
+                            <p>Thème : plante</p>
+                            <p>utilisez le pouvoir de la nature.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="classe-card locked" data-classe="empereur">
+
+                    <div class="card-inner">
+
+                        <div class="card-front">
+                            <h3>👑 Empereur 🔒</h3>
+
+                            <img src="./assets/image/joueur/empereur.png" alt="Empereur">
+                        </div>
+
+                        <div class="card-back">
+
+                            <h4>👑 Empereur</h4>
+
+                            <p>Toutes les catégories</p>
+
+                            <p>
+                                🔒 Terminez le Guerrier et le Mage
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
+
+            <button id="bouton_jouer">Commencer l'aventure</button>
+
         </div>
-
-        <div class="classe-card" data-classe="mage">
-            <div class="card-inner">
-                <div class="card-front">
-                    <h3>🔮 Mage</h3>
-                    <img src="./assets/image/joueur/mage.png" alt="Mage">
-                </div>
-                <div class="card-back">
-                    <h4>Mage</h4>
-                    <p>Thème : Culture générale</p>
-                    <p>Savoir et intelligence.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="classe-card" data-classe="voleur">
-            <div class="card-inner">
-                <div class="card-front">
-                    <h3>🏹 Voleur</h3>
-                    <img src="./assets/image/joueur/voleur.png" alt="Voleur">
-                </div>
-                <div class="card-back">
-                    <h4>Voleur</h4>
-                    <p>Thème : Mathématiques</p>
-                    <p>Rapidité et précision.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="classe-card" data-classe="pretre">
-            <div class="card-inner">
-                <div class="card-front">
-                    <h3>✨ Prêtre</h3>
-                    <img src="./assets/image/joueur/pretre.png" alt="Prêtre">
-                </div>
-                <div class="card-back">
-                    <h4>Prêtre</h4>
-                    <p>Thème : Anglais</p>
-                    <p>Sagesse et guérison.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="classe-card" data-classe="dompteur">
-            <div class="card-inner">
-                <div class="card-front">
-                    <h3>🐺 Dompteur</h3>
-                    <img src="./assets/image/joueur/dompteur.png" alt="Dompteur">
-                </div>
-                <div class="card-back">
-                    <h4>Dompteur</h4>
-                    <p>Thème : Animaux</p>
-                    <p>Maître des créatures.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="classe-card" data-classe="samourai">
-            <div class="card-inner">
-                <div class="card-front">
-                    <h3>⚔️ Samouraï</h3>
-                    <img src="./assets/image/joueur/samourai.png" alt="Samourai">
-                </div>
-                <div class="card-back">
-                    <h4>Samouraï</h4>
-                    <p>Thème : Japonais</p>
-                    <p>Honneur et discipline.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="classe-card" data-classe="archer">
-            <div class="card-inner">
-                <div class="card-front">
-                    <h3>🏹 Archer</h3>
-                    <img src="./assets/image/joueur/archer.png" alt="Archer">
-                </div>
-                <div class="card-back">
-                    <h4>Archer</h4>
-                    <p>Thème : Geographie</p>
-                    <p>vise avec précision.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="classe-card" data-classe="barde">
-            <div class="card-inner">
-                <div class="card-front">
-                    <h3>🎵 Barde</h3>
-                    <img src="./assets/image/joueur/barde.png" alt="Barde">
-                </div>
-                <div class="card-back">
-                    <h4>barde</h4>
-                    <p>Thème : Musique</p>
-                    <p>sors tes instruments.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="classe-card" data-classe="moine">
-            <div class="card-inner">
-                <div class="card-front">
-                    <h3>🥋 Moine</h3>
-                    <img src="./assets/image/joueur/moine.png" alt="Moine">
-                </div>
-                <div class="card-back">
-                    <h4>Moine</h4>
-                    <p>Thème : Histoire</p>
-                    <p>soyez plein de sagesse.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="classe-card" data-classe="herboriste">
-            <div class="card-inner">
-                <div class="card-front">
-                    <h3>🌿 Herboriste</h3>
-                    <img src="./assets/image/joueur/herboriste.png" alt="Herboriste">
-                </div>
-                <div class="card-back">
-                    <h4>Herboriste</h4>
-                    <p>Thème : plante</p>
-                    <p>utilisez le pouvoir de la nature.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="classe-card" data-classe="roi">
-    <div class="card-inner">
-
-        <div class="card-front">
-            <h3>👑 Roi</h3>
-            <img src="./assets/image/joueur/roi.png" alt="Roi">
-        </div>
-
-        <div class="card-back">
-            <h4>Roi</h4>
-            <p>Thème : Tous les domaines</p>
-            <p>Maîtrise toutes les connaissances.</p>
-        </div>
-
-    </div>
-</div>
-
-    </div>
-
-    <button id="bouton_jouer">Commencer l'aventure</button>
-
-</div>
 
     </main>
 
@@ -232,6 +247,7 @@
         <p>Projet ludique éducatif — Langage RPG</p>
     </footer>
 
-<script type="module" src="./assets/js/script.js"></script>   
+    <script type="module" src="./assets/js/script.js"></script>
 </body>
+
 </html>

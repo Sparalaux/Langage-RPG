@@ -111,17 +111,30 @@ soundHeal.volume = 0.6;
 /* ============================
    SELECTION CLASSE
 ============================ */
+mettreAJourClasses();
 
 document.querySelectorAll(".classe-card").forEach(card => {
 
   card.addEventListener("click", () => {
+
+    const classe = card.dataset.classe;
+
+    if (!classeEstDebloquee(classe)) {
+
+      alert(
+        "🔒 Cette classe est verrouillée !\n\n" +
+        "Terminez le Guerrier et le Mage pour débloquer l'Empereur."
+      );
+
+      return;
+    }
 
     document.querySelectorAll(".classe-card")
       .forEach(c => c.classList.remove("selected"));
 
     card.classList.add("selected");
 
-    classeChoisie = card.dataset.classe;
+    classeChoisie = classe;
   });
 
 });
@@ -384,7 +397,7 @@ function verifierFinDeJeu(listeQuestions) {
 
     // Si c'était le boss → victoire finale
     if (estBoss) {
-
+      terminerClasse(classeChoisie);
       jeu.innerHTML = `
       <div class="question-container">
         <h1>🔥 BOSS VAINCU ! 🔥</h1>
@@ -412,4 +425,64 @@ function verifierFinDeJeu(listeQuestions) {
   }
 
   return false;
+}
+
+/* ============================
+   SAUVEGARDE
+============================ */
+
+let sauvegarde = JSON.parse(
+  localStorage.getItem("langageRPG")
+) || {
+  classesTerminees: []
+};
+
+function terminerClasse(classe) {
+
+  if (!sauvegarde.classesTerminees.includes(classe)) {
+
+    sauvegarde.classesTerminees.push(classe);
+
+    localStorage.setItem(
+      "langageRPG",
+      JSON.stringify(sauvegarde)
+    );
+  }
+}
+
+/* ============================
+   bloqué les classes
+============================ */
+
+function classeEstDebloquee(classe) {
+
+  if (classe === "empereur") {
+
+    return (
+      sauvegarde.classesTerminees.includes("guerrier") &&
+      sauvegarde.classesTerminees.includes("mage")
+    );
+
+  }
+
+  return true;
+}
+
+function mettreAJourClasses() {
+
+  document.querySelectorAll(".classe-card").forEach(card => {
+
+    const classe = card.dataset.classe;
+
+    if (classeEstDebloquee(classe)) {
+
+      card.classList.remove("locked");
+
+    } else {
+
+      card.classList.add("locked");
+
+    }
+
+  });
 }
