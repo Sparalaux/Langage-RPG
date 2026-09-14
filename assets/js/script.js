@@ -105,6 +105,29 @@ music.volume = 0.2;
 soundHit.volume = 0.6;
 soundHeal.volume = 0.6;
 
+/* ============================
+   SAUVEGARDE
+============================ */
+
+let sauvegarde = JSON.parse(
+  localStorage.getItem("langageRPG")
+) || {
+  classesTerminees: []
+};
+
+function terminerClasse(classe) {
+
+  if (!sauvegarde.classesTerminees.includes(classe)) {
+
+    sauvegarde.classesTerminees.push(classe);
+
+    localStorage.setItem(
+      "langageRPG",
+      JSON.stringify(sauvegarde)
+    );
+  }
+}
+
 
 
 
@@ -112,29 +135,25 @@ soundHeal.volume = 0.6;
    SELECTION CLASSE
 ============================ */
 mettreAJourClasses();
-
 document.querySelectorAll(".classe-card").forEach(card => {
-
+  
   card.addEventListener("click", () => {
 
-    const classe = card.dataset.classe;
-
-    if (!classeEstDebloquee(classe)) {
-
-      alert(
-        "🔒 Cette classe est verrouillée !\n\n" +
-        "Terminez le Guerrier et le Mage pour débloquer l'Empereur."
-      );
-
+    // Si la classe est verrouillée, on ne fait rien
+    if (card.classList.contains("locked")) {
       return;
     }
 
+    // Retire la sélection des autres classes
     document.querySelectorAll(".classe-card")
       .forEach(c => c.classList.remove("selected"));
 
+    // Sélectionne la classe choisie
     card.classList.add("selected");
 
-    classeChoisie = classe;
+    // Enregistre la classe
+    classeChoisie = card.dataset.classe;
+
   });
 
 });
@@ -425,29 +444,6 @@ function verifierFinDeJeu(listeQuestions) {
   }
 
   return false;
-}
-
-/* ============================
-   SAUVEGARDE
-============================ */
-
-let sauvegarde = JSON.parse(
-  localStorage.getItem("langageRPG")
-) || {
-  classesTerminees: []
-};
-
-function terminerClasse(classe) {
-
-  if (!sauvegarde.classesTerminees.includes(classe)) {
-
-    sauvegarde.classesTerminees.push(classe);
-
-    localStorage.setItem(
-      "langageRPG",
-      JSON.stringify(sauvegarde)
-    );
-  }
 }
 
 /* ============================

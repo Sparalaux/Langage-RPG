@@ -208,43 +208,178 @@ button:hover {
 
 .classes-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+
+  /* Les cartes s'adaptent à la largeur disponible */
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+
   gap: 25px;
+
   justify-items: center;
+
   width: 100%;
 }
+
+
+/* =========================
+   CARTE
+========================= */
 
 .classe-card {
   width: 180px;
-  height: 240px;
+  height: 250px;
+
   perspective: 1000px;
+
   cursor: pointer;
+
   position: relative;
+
+  /* Empêche le contenu de dépasser */
+  overflow: visible;
 }
 
-.classe-card h3 {
-  font-size: 16px;
-  text-align: center;
-  width: 100%;
-  padding: 0 5px;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-}
 
-.classe-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 12px;
-}
+/* =========================
+   CONTENU DE LA CARTE
+========================= */
 
 .card-inner {
   position: relative;
+
   width: 100%;
   height: 100%;
+
   transition: transform 0.6s;
+
   transform-style: preserve-3d;
 }
+
+
+/* =========================
+   FACE AVANT / ARRIÈRE
+========================= */
+
+.card-front,
+.card-back {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  border-radius: 12px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: flex-start;
+
+  border: 2px solid rgba(255,255,255,0.2);
+
+  background: rgba(255,255,255,0.05);
+
+  backdrop-filter: blur(6px);
+
+  backface-visibility: hidden;
+
+  overflow: hidden;
+}
+
+
+/* =========================
+   FACE AVANT
+========================= */
+
+.card-front {
+  padding: 8px;
+
+  gap: 6px;
+}
+
+
+/* NOM DE LA CLASSE */
+
+.card-front h3 {
+  width: 100%;
+
+  min-height: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  font-size: clamp(14px, 1.2vw, 18px);
+
+  line-height: 1.1;
+
+  white-space: normal;
+
+  overflow-wrap: anywhere;
+
+  word-break: break-word;
+
+  flex-shrink: 0;
+}
+
+
+/* IMAGE */
+
+.card-front img {
+  display: block;
+
+  width: 100%;
+
+  /* IMPORTANT :
+     l'image ne prend plus 100% de la hauteur */
+
+  height: calc(100% - 38px);
+
+  min-height: 0;
+
+  object-fit: cover;
+
+  border-radius: 10px;
+
+  flex: 1;
+}
+
+
+/* =========================
+   FACE ARRIÈRE
+========================= */
+
+.card-back {
+  transform: rotateY(180deg);
+
+  padding: 15px;
+
+  text-align: center;
+
+  justify-content: center;
+
+  gap: 8px;
+}
+
+.card-back h4 {
+  font-size: 20px;
+}
+
+.card-back p {
+  font-size: 14px;
+
+  line-height: 1.4;
+
+  overflow-wrap: break-word;
+}
+
+
+/* =========================
+   RETOURNEMENT
+========================= */
 
 .classe-card:hover .card-inner {
   transform: rotateY(180deg);
@@ -254,67 +389,63 @@ button:hover {
   transform: rotateY(180deg);
 }
 
+
+/* =========================
+   CARTE SÉLECTIONNÉE
+========================= */
+
 .classe-card.selected {
   border: 3px solid #4CAF50;
+
   border-radius: 12px;
-  box-shadow: 0 0 20px #4CAF50, 0 0 40px #4CAF50 inset;
+
+  box-shadow:
+    0 0 20px #4CAF50,
+    0 0 40px #4CAF50 inset;
+
   animation: pulseSelect 1.5s infinite;
 }
 
+
+/* =========================
+   ANIMATION SÉLECTION
+========================= */
+
 @keyframes pulseSelect {
-  0% { box-shadow: 0 0 10px #4CAF50; }
-  50% { box-shadow: 0 0 25px #4CAF50; }
-  100% { box-shadow: 0 0 10px #4CAF50; }
+
+  0% {
+    box-shadow: 0 0 10px #4CAF50;
+  }
+
+  50% {
+    box-shadow: 0 0 25px #4CAF50;
+  }
+
+  100% {
+    box-shadow: 0 0 10px #4CAF50;
+  }
+
 }
 
-.card-front {
-  padding: 10px;
-  gap: 8px;
-}
 
-.card-front h3 {
-  font-size: clamp(14px, 1.2vw, 18px);
-  text-align: center;
-  max-width: 100%;
-  line-height: 1.2;
-}
-
-.card-front,
-.card-back {
-  position: absolute;
-  inset: 0;
-  border-radius: 12px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  border: 2px solid rgba(255,255,255,0.2);
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(6px);
-
-  backface-visibility: hidden;
-}
-
-.card-back {
-  transform: rotateY(180deg);
-  padding: 15px;
-  text-align: center;
-  gap: 8px;
-}
+/* =========================
+   CLASSE VERROUILLÉE
+========================= */
 
 .classe-card.locked {
   filter: grayscale(1);
-  opacity: 0.55;
-}
 
-.classe-card.locked:hover {
+  opacity: 0.55;
+
   cursor: not-allowed;
 }
 
+
+/* Empêche le cadenas de bloquer les clics */
+
 .classe-card.locked::after {
   content: "🔒";
+
   position: absolute;
 
   top: 8px;
@@ -323,14 +454,27 @@ button:hover {
   font-size: 25px;
 
   background: rgba(0, 0, 0, 0.7);
+
   border-radius: 50%;
 
   width: 40px;
   height: 40px;
 
   display: flex;
+
   align-items: center;
   justify-content: center;
+
+  pointer-events: none;
+}
+
+
+/* =========================
+   ÉTAT SÉLECTIONNÉ
+========================= */
+
+.classe-card.selected {
+  cursor: pointer;
 }
 
 
@@ -494,7 +638,7 @@ button:hover {
 }
 
 /* =========================
-   RESPONSIVE TABLETTE
+   TABLETTE
 ========================= */
 
 @media (max-width: 900px) {
@@ -510,23 +654,69 @@ button:hover {
   .question-texte {
     font-size: 20px;
   }
+
+  .classes-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .classe-card {
+    width: 160px;
+    height: 230px;
+  }
+
 }
+
+
+/* =========================
+   PETITE TABLETTE / MOBILE
+========================= */
+
+@media (max-width: 650px) {
+
+  .classes-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .classe-card {
+    width: 150px;
+    height: 220px;
+  }
+
+}
+
 
 /* =========================
    MOBILE
 ========================= */
 
-@media (max-width: 600px) {
+@media (max-width: 400px) {
 
-  .header h1 {
-    font-size: 1.6rem;
+  .classes-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
   }
 
-  .reponses {
-    grid-template-columns: 1fr;
+  .classe-card {
+    width: 140px;
+    height: 210px;
   }
 
-  button {
-    width: 100%;
+  .card-front h3 {
+    font-size: 13px;
   }
+
+  .card-back {
+    padding: 10px;
+  }
+
+  .card-back h4 {
+    font-size: 17px;
+  }
+
+  .card-back p {
+    font-size: 12px;
+  }
+
 }
